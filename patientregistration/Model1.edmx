@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="clinicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="detailtab">
+          <Key>
+            <PropertyRef Name="Patient ID" />
+          </Key>
+          <Property Name="Patient ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PIN Code" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Aadhar ID Number" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mobile" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Blood Group" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Visit Date" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Purpose of Visit" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Editing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+          <Parameter Name="ad" Type="varchar" Mode="In" />
+          <Parameter Name="pin" Type="nchar" Mode="In" />
+          <Parameter Name="aad" Type="nchar" Mode="In" />
+          <Parameter Name="mob" Type="nchar" Mode="In" />
+          <Parameter Name="bg" Type="varchar" Mode="In" />
+          <Parameter Name="vd" Type="nchar" Mode="In" />
+          <Parameter Name="pov" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+          <Parameter Name="ad" Type="varchar" Mode="In" />
+          <Parameter Name="pin" Type="nchar" Mode="In" />
+          <Parameter Name="aad" Type="nchar" Mode="In" />
+          <Parameter Name="mob" Type="nchar" Mode="In" />
+          <Parameter Name="bg" Type="varchar" Mode="In" />
+          <Parameter Name="vd" Type="nchar" Mode="In" />
+          <Parameter Name="pov" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+          <Parameter Name="mob" Type="nchar" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="sp_search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="na" Type="varchar" Mode="In" />
+          <Parameter Name="vd" Type="nchar" Mode="In" />
+          <Parameter Name="pov" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="clinicModelStoreContainer">
+          <EntitySet Name="detailtab" EntityType="Self.detailtab" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="clinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="detailtab">
+          <Key>
+            <PropertyRef Name="Patient_ID" />
+          </Key>
+          <Property Name="Patient_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PIN_Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Aadhar_ID_Number" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Blood_Group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Visit_Date" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Purpose_of_Visit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="clinicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="detailtabs" EntityType="Self.detailtab" />
+          <FunctionImport Name="sp_insert">
+            <Parameter Name="na" Mode="In" Type="String" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="pin" Mode="In" Type="String" />
+            <Parameter Name="aad" Mode="In" Type="String" />
+            <Parameter Name="mob" Mode="In" Type="String" />
+            <Parameter Name="bg" Mode="In" Type="String" />
+            <Parameter Name="vd" Mode="In" Type="String" />
+            <Parameter Name="pov" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_login">
+            <Parameter Name="na" Mode="In" Type="String" />
+            <Parameter Name="mob" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_search" ReturnType="Collection(clinicModel.sp_search_Result)">
+          <Parameter Name="na" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Editing">
+            <Parameter Name="na" Mode="In" Type="String" />
+            <Parameter Name="ad" Mode="In" Type="String" />
+            <Parameter Name="pin" Mode="In" Type="String" />
+            <Parameter Name="aad" Mode="In" Type="String" />
+            <Parameter Name="mob" Mode="In" Type="String" />
+            <Parameter Name="bg" Mode="In" Type="String" />
+            <Parameter Name="vd" Mode="In" Type="String" />
+            <Parameter Name="pov" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_update">
+            <Parameter Name="na" Mode="In" Type="String" />
+            <Parameter Name="vd" Mode="In" Type="String" />
+            <Parameter Name="pov" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_delete" ReturnType="Collection(clinicModel.sp_delete_Result)">
+            <Parameter Name="na" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_search_Result">
+          <Property Type="Int32" Name="Patient_ID" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PIN_Code" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Aadhar_ID_Number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Blood_Group" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Visit_Date" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Purpose_of_Visit" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_delete_Result">
+          <Property Type="Int32" Name="Patient_ID" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PIN_Code" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Aadhar_ID_Number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Mobile" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Blood_Group" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Visit_Date" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Purpose_of_Visit" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="clinicModelStoreContainer" CdmEntityContainer="clinicEntities">
+          <EntitySetMapping Name="detailtabs">
+            <EntityTypeMapping TypeName="clinicModel.detailtab">
+              <MappingFragment StoreEntitySet="detailtab">
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PIN_Code" ColumnName="PIN Code" />
+                <ScalarProperty Name="Aadhar_ID_Number" ColumnName="Aadhar ID Number" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Blood_Group" ColumnName="Blood Group" />
+                <ScalarProperty Name="Visit_Date" ColumnName="Visit Date" />
+                <ScalarProperty Name="Purpose_of_Visit" ColumnName="Purpose of Visit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_insert" FunctionName="clinicModel.Store.sp_insert" />
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="clinicModel.Store.sp_login" />
+          <FunctionImportMapping FunctionImportName="sp_search" FunctionName="clinicModel.Store.sp_search">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="clinicModel.sp_search_Result">
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PIN_Code" ColumnName="PIN Code" />
+                <ScalarProperty Name="Aadhar_ID_Number" ColumnName="Aadhar ID Number" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Blood_Group" ColumnName="Blood Group" />
+                <ScalarProperty Name="Visit_Date" ColumnName="Visit Date" />
+                <ScalarProperty Name="Purpose_of_Visit" ColumnName="Purpose of Visit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Editing" FunctionName="clinicModel.Store.sp_Editing" />
+          <FunctionImportMapping FunctionImportName="sp_update" FunctionName="clinicModel.Store.sp_update" />
+          <FunctionImportMapping FunctionImportName="sp_delete" FunctionName="clinicModel.Store.sp_delete">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="clinicModel.sp_delete_Result">
+                <ScalarProperty Name="Patient_ID" ColumnName="Patient ID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PIN_Code" ColumnName="PIN Code" />
+                <ScalarProperty Name="Aadhar_ID_Number" ColumnName="Aadhar ID Number" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Blood_Group" ColumnName="Blood Group" />
+                <ScalarProperty Name="Visit_Date" ColumnName="Visit Date" />
+                <ScalarProperty Name="Purpose_of_Visit" ColumnName="Purpose of Visit" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

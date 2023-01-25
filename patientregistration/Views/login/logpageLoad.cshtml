@@ -1,0 +1,30 @@
+﻿@model patientregistration.Models.logcls
+@{
+    ViewBag.Title = "logpageLoad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>login</h2>
+@using (Html.BeginForm("log_click", "login", FormMethod.Post))
+{<div>
+        <label>FullName:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.FullName)
+        @Html.ValidationMessageFor(m => m.FullName)
+
+    </div>
+
+    <div>
+        <label>Mobile:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Mobile)
+
+
+    </div>
+    <div>
+        <input type="submit" value="Login" />
+        @Html.DisplayFor(m => m.msg)
+    </div>
+}

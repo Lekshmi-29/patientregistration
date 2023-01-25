@@ -1,0 +1,92 @@
+﻿@model patientregistration.Models.edit
+@{
+    ViewBag.Title = "editload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>details</h2>
+<div>
+    @using (Html.BeginForm("editload", "Pedit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div>
+            <label>FullName:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.FullName)
+            @Html.ValidationMessageFor(m => m.FullName)
+        </div>
+
+
+        <div>
+            <label>Address:</label>
+        </div>
+        <div>
+            @Html.TextAreaFor(m => m.Address)
+            @Html.ValidationMessageFor(m => m.Address)
+        </div>
+
+        <div>
+            <label>PINCode:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.PINCode)
+            @Html.ValidationMessageFor(m => m.PINCode)
+        </div>
+
+        <div>
+            <label>AadharID:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.AadharID)
+            @Html.ValidationMessageFor(m => m.AadharID)
+        </div>
+
+        <div>
+            <label>Mobile:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Mobile)
+
+        </div>
+
+
+        <div>
+            <label>BloodGroup:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.BloodGroup)
+            @Html.ValidationMessageFor(m => m.BloodGroup)
+        </div>
+
+        <div>
+            <label>VisitDate:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.VisitDate)
+            @Html.ValidationMessageFor(m => m.VisitDate)
+        </div>
+
+        <div>
+            <label>Purposeofvisit:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.Purposeofvisit)
+            @Html.ValidationMessageFor(m => m.Purposeofvisit)
+        </div>
+        <div>
+            <input type="submit" value="Edit" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to Home", "Home", "login")
+
+
+        </div>
+    }
+
+</div>
+
+
+

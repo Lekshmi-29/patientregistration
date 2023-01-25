@@ -1,0 +1,35 @@
+﻿@model patientregistration.Models.Class3
+@{
+    ViewBag.Title = "Updateload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>details</h2>
+@using (Html.BeginForm("Updateload", "Pupdate", FormMethod.Post))
+{
+    <div>
+        <label>VisitDate:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.VisitDate)
+        @Html.ValidationMessageFor(m => m.VisitDate)
+    </div>
+
+    <div>
+        <label>PurposeofVisit:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.PurposeofVisit)
+        @Html.ValidationMessageFor(m => m.PurposeofVisit)
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+        @Html.DisplayFor(m => m.msg)
+    </div>
+    <div>
+        @Html.ActionLink("Back to Home", "Home", "login")
+
+
+    </div>
+}
+

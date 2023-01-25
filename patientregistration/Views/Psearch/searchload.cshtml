@@ -1,0 +1,57 @@
+﻿@model patientregistration.Models.Class2
+@{
+    ViewBag.Title = "searchload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@using (Html.BeginForm("log_click", "Psearch", FormMethod.Post))
+{<div>
+        <label>FullName:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.FullName)
+        @Html.ValidationMessageFor(m => m.FullName)
+
+    </div>
+
+    <div>
+        <label>Address:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Address)
+        @Html.ValidationMessageFor(m => m.Address)
+
+    </div>
+
+    <div>
+        @Html.TextBoxFor(m => m.PINCode)
+        @Html.ValidationMessageFor(m => m.PINCode)
+    </div>
+
+    <div>
+        <label>AadharID:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.AadharID)
+        @Html.ValidationMessageFor(m => m.AadharID)
+    </div>
+
+
+
+    <div>
+        <label>Mobile:</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Mobile)
+
+
+    </div>
+    <div>
+        @Html.ActionLink("Back to Home", "Home", "login")
+
+
+    </div>
+}
+
+
